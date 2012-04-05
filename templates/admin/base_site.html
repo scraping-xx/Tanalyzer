@@ -1,0 +1,42 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}Tanalyzer{{ title }}{% endblock %}
+{% block adm_on %}current{%endblock%}
+{% block stylesheet %} {% load adminmedia %}{% admin_media_prefix %}css/main.css{% endblock %}
+{% block extrastyle %}
+<link rel="stylesheet" href="{% load adminmedia %}{% admin_media_prefix %}css/reset.css" />
+<link rel="stylesheet" href="{% load adminmedia %}{% admin_media_prefix %}css/visualize.css" />
+<link rel="stylesheet" href="{% load adminmedia %}{% admin_media_prefix %}css/datatables.css" />
+<link rel="stylesheet" href="{% load adminmedia %}{% admin_media_prefix %}css/buttons.css" />
+<link rel="stylesheet" href="{% load adminmedia %}{% admin_media_prefix %}css/checkboxes.css" />
+<link rel="stylesheet" href="{% load adminmedia %}{% admin_media_prefix %}css/inputtags.css" />
+<!--
+[if lt IE 9]>
+<link rel="stylesheet" href="css/ie.css" />
+<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]
+-->
+<script src="{% load adminmedia %}{% admin_media_prefix %}js/excanvas.js"></script>
+<script src="{% load adminmedia %}{% admin_media_prefix %}js/jquery.js"></script>
+<script src="{% load adminmedia %}{% admin_media_prefix %}js/jquery.livesearch.js"></script>
+<script src="{% load adminmedia %}{% admin_media_prefix %}js/jquery.visualize.js"></script>
+<script src="{% load adminmedia %}{% admin_media_prefix %}js/jquery.datatables.js"></script>
+<script src="{% load adminmedia %}{% admin_media_prefix %}js/jquery.placeholder.js"></script>
+<script src="{% load adminmedia %}{% admin_media_prefix %}js/jquery.selectskin.js"></script>
+<script src="{% load adminmedia %}{% admin_media_prefix %}js/jquery.checkboxes.js"></script>
+<script src="{% load adminmedia %}{% admin_media_prefix %}js/jquery.wymeditor.js"></script>
+<script src="{% load adminmedia %}{% admin_media_prefix %}js/jquery.validate.js"></script>
+<script src="{% load adminmedia %}{% admin_media_prefix %}js/jquery.inputtags.js"></script>
+<script src="{% load adminmedia %}{% admin_media_prefix %}js/notifications.js"></script>
+<script src="{% load adminmedia %}{% admin_media_prefix %}js/application.js"></script>
+{% endblock %}
+
+{% block branding %}
+<h1 id="logo">{% trans '<strong>Tanalyzer</strong>' %}</h1>
+{% endblock %}
+{% block footer %}  <footer id="copyright">Tanalyzer v1.3.1 2012</footer> {% endblock %}
+{% block extrafooter %}
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

@@ -1,0 +1,34 @@
+Las tablas deben ser creadas utilizando utf8_unicode_ci
+Desde mysql
+	CREATE DATABASE 'db_name' CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+Además debe existir el usuario con los permisos asociados a la base de datos.
+
+************
+*IMPORTANTE*
+************
+El nombre de la base de datos, como el usuario y el password debe estar configurado en el archivo settings_local.py 
+
+
+Instalar dependencias para ubuntu: (supone que mysql ya esta instalado)
+	- En la carpeta tanalizer ejecutar:
+	sudo ./install_project
+
+Crear tablas en bd
+	python manage.py syncdb (poner yes para crear admin)
+
+Cargar datos iniciales para Betazeta
+	python manage.py loaddata data_base_bz.json
+
+Ir a carpeta del proyecto y correr el servidor con:
+    python manage.py runserver
+
+Ir al navegador:
+    en local:
+    http://localhost:8000/admin/
+    
+#############################
+SI ESTA TRABAJANDO CON APACHE
+
+no necesita levantar el servidor
+simplemente visite localhost o su ip desde otra maquina

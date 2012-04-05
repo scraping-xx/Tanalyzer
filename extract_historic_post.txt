@@ -1,0 +1,10 @@
+mysqldump -u betazetanet -pbetazetanet -h msm.betazeta.com stress0_belelu0 wp_posts > posts_belelu0.dump &
+mysqldump -u betazetanet -pbetazetanet -h msm.betazeta.com stress0_bolido0 wp_posts > posts_bolido0.dump &
+mysqldump -u betazetanet -pbetazetanet -h msm.betazeta.com stress0_bolido1 wp_posts > posts_bolido1.dump &
+mysqldump -u betazetanet -pbetazetanet -h msm.betazeta.com stress0_chw0 wp_posts > posts_chw0.dump &
+mysqldump -u betazetanet -pbetazetanet -h msm.betazeta.com stress0_fayerwayer0 wp_posts > posts_fayeswayer0.dump &
+mysqldump -u betazetanet -pbetazetanet -h msm.betazeta.com stress0_ferplei0 wp_posts > posts_ferplei0.dump &
+mysqldump -u betazetanet -pbetazetanet -h msm.betazeta.com stress0_niubie0 wp_posts > posts_niubie0.dump &
+mysqldump -u betazetanet -pbetazetanet -h msm.betazeta.com stress0_saborizante0 wp_posts > posts_saborizante0.dump &
+mysqldump -u betazetanet -pbetazetanet -h msm.betazeta.com stress0_veoverde0 wp_posts > posts_veoverde0.dump &
+mysqldump -u betazetanet -pbetazetanet -h msm.betazeta.com stress0_wayerless0 wp_posts > posts_wayerless0.dump &

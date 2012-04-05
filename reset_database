@@ -1,0 +1,28 @@
+#!/bin/bash
+
+dbname=`python -c"from settings import *; print DATABASES['default']['NAME']"`
+dbuser=`python -c"from settings import *; print DATABASES['default']['USER']"`
+dbpass=`python -c"from settings import *; print DATABASES['default']['PASSWORD']"`
+
+read -p "Enter MySQL root password: " -s pass
+
+q="DELETE FROM application_clientldamodel;"
+q0="DELETE FROM application_datasetldamodel;"
+
+q1="DELETE FROM application_documentdistribution;"
+q2="DELETE FROM application_documenttopic;"
+q3="DELETE FROM application_frequency;"
+q4="DELETE FROM application_topicword;"
+q5="DELETE FROM application_wordldamodel;"
+q6="DELETE FROM application_worddatasetfrequency;"
+
+w="DELETE FROM application_word;"
+l="DELETE FROM application_ldamodel;"
+g="DELETE FROM application_topic;"
+f="DELETE FROM application_document;"
+
+SQL="$q $q0 $q1 $q2 $q3 $q4 $q5 $q6 $w $l $g $f"
+echo $SQL
+
+mysql --user=root --password=$pass -e "$SQL" $dbname
+

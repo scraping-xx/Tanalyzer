@@ -1,0 +1,70 @@
+SEA 'RUTA' LA CARPETA PADRE DE TANALIZER
+
+sudo apt-get install libapache2-mod-wsgi 
+# ya está en el install_project
+
+en tanalizer
+mkdir apache
+crear archivo django.wsgi
+este archivo ya está en bitbucket
+"""
+import os
+import sys
+
+sys.path.append('RUTA')
+sys.path.append('RUTA/tanalizer')
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'tanalizer.settings'
+
+import django.core.handlers.wsgi
+application = django.core.handlers.wsgi.WSGIHandler()
+"""
+
+editar el archivo /etc/hosts dejando:
+"""
+127.0.0.1       tanalizer.djangoserver
+127.0.1.1       clopez-dell
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+"""
+
+creamos el archivo del virtual_server
+nano /etc/apache2/sites-available/tanalizer.djangoserver
+"""
+<VirtualHost *:80>
+    ServerName tanalizer.djangoserver
+    DocumentRoot /RUTA/tanalizer
+
+    AliasMatch ^/([^/]*\.css) /RUTA/tanalizer/assets/admin/$1
+    Alias /assets/ /RUTA/tanalizer/assets/
+
+    <Directory /RUTA/tanalizer/assets>
+        Order deny,allow
+        Allow from all
+    </Directory>
+
+    <Directory /RUTA/tanalizer>
+        Order deny,allow
+        Allow from all
+    </Directory>
+
+    WSGIDaemonProcess tanalizer.djangoserver processes=2 threads=15 display-name=%{GROUP}
+    WSGIProcessGroup tanalizer.djangoserver
+
+    WSGIScriptAlias / /RUTA/tanalizer/apache/django.wsgi
+
+    WSGIApplicationGroup %{GLOBAL}
+
+</Virtualhost>
+"""
+
+sudo a2dissite default
+sudo a2ensite tanalizer.djangoserver
+sudo service apache2 reload
+sudo /etc/init.d/apache2 stop
+sudo /etc/init.d/apache2 start

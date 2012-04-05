@@ -1,0 +1,15 @@
+syntax: glob
+*.pyc
+*.py~
+*.txt
+application_topicword.txt
+settings_local.py
+settings.pyc
+__init__.pyc
+urls.pyc
+stemmer/share/*
+stemmer/lib/*
+stemmer/include/*
+stemmer/bin/*
+stemmer/lib*
+stemmer/FreeLing-2.2.2.tar.gz
