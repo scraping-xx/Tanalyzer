@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from tanalizer.classifier.models import Classifier
-from tanalizer.classifier.models import ClassifierNode
-from tanalizer.classifier.models import ClientClassifier
+from Tanalyzer.classifier.models import Classifier
+from Tanalyzer.classifier.models import ClassifierNode
+from Tanalyzer.classifier.models import ClientClassifier
 
 admin.site.register(Classifier)
 admin.site.register(ClassifierNode)

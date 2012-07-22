@@ -1,7 +1,9 @@
-from BeautifulSoup import BeautifulSoup, NavigableString
+
+from bs4 import BeautifulSoup, NavigableString
 from django.utils.encoding import smart_str, smart_unicode
-import re
 from django.utils.html import strip_tags as django_strip_tags
+import re
+
 def strip_tags(data):
     data = re.compile(r'<.*?>').sub('',data)
     data = re.compile(r'\[.*?\]').sub('',data)

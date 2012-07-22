@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from tanalizer.application.models import *
+from Tanalyzer.application.models import *
 
 admin.site.register(Client)
 admin.site.register(DataSet)

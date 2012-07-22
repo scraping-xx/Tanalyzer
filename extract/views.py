@@ -10,8 +10,8 @@ import time
 import os
 
 #External
-from BeautifulSoup import BeautifulSoup
-from BeautifulSoup import Comment
+from bs4 import BeautifulSoup
+from bs4 import Comment
 
 #Django
 from django.db.models import Count
