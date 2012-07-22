@@ -7,9 +7,13 @@ def run():
     local("python manage.py runserver")
 
 def prepare_deploy():
-    local("./manage.py test my_app")
+    local("./manage.py test Tanalyzer")
     local("git add -p && git commit")
     local("git push")
+
+def configure():
+    local("python manage.py syncdb")
+    local("python manage.py loaddata data_base_bz.json")
 
 def install(machine="mac"):
     
@@ -30,6 +34,7 @@ def install(machine="mac"):
 
 
     local("sudo pip install beautifulsoup4")
+    local("sudo pip install lxml")
 
     #Django
     django_egg = egg_base_path+'Django-1.4-py2.7.egg-info'

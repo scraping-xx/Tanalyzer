@@ -61,16 +61,8 @@ def webservice(request,id_cliente,f,id_clasificador=None,text=None):
     
     #Validar que Cliente posea dicho Clasificador
     if clasificador.validate(cliente):
-
         ldamodel = clasificador.startModel()
-
-        if ldamodel.stemming and ldamodel.steamed_content:
-            prediccion = clasificador.classify(ldamodel,document.steamed_content,10,11)
-        else:
-            prediccion = clasificador.classify(ldamodel,document.cleaned_content,10,11)
-
-        #print "webservice worked correctly"        
-        #Retorno la prediccion parseada por la lambda
+        prediccion = clasificador.classify(ldamodel,document.cleaned_content,10,11)
         return f(prediccion)
         
     else:

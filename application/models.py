@@ -13,8 +13,6 @@ from lib.stop_words.functions import remove_non_alphanumeric
 from lib.stop_words.functions import remove_words
 from lib.parser.functions import strip_tags
 
-from stemmer.views import freeling_stemming
-
 class Client(models.Model):
     name = models.CharField(max_length = 255, unique = True)
     
@@ -203,8 +201,6 @@ class Document(models.Model):
             aux = aux.replace('  ',' ')
 
             self.cleaned_content = aux.strip()
-        #if not self.steamed_content:
-        #    self.steamed_content = freeling_stemming(self.cleaned_content)
 
 class DocumentDistribution(models.Model):
 

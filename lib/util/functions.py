@@ -1,6 +1,6 @@
 from operator import itemgetter
 import math
-import time                                                
+import time
 
 def timeit(method):
 

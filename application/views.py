@@ -92,8 +92,6 @@ def validation_sample( request, ldamodel_id = None ):
 #@login_required(login_url='/admin/')
 def predict_data_set(request,class_id,dataset_id,only_test_data):
 
-    stemming_test = True
-
     only_test_data = int(only_test_data)
     clasificador = get_object_or_404(Classifier, pk = class_id)
     dataset = get_object_or_404(DataSet, pk = dataset_id)
@@ -115,11 +113,7 @@ def predict_data_set(request,class_id,dataset_id,only_test_data):
         if not document.cleaned_content:
             document.clean_content()
 
-        if stemming_test:
-            text = document.steamed_content
-        else:
-            text = document.cleaned_content
-        
+        text = document.cleaned_content        
         if text:
             prediccion = webservice(request,1,lambda x:json.dumps(x),clasificador.id,text=text)
             document.prediction = prediccion

@@ -140,12 +140,7 @@ def load_words(request, ldamodel = None):
     i = 0
     print " -> %s documents loaded..." % len(documents)
     for d in documents:
-        if ldamodel and ldamodel.stemming and d.steamed_content:
-            if i == 0: print "using stemming"
-            i += 1
-            for a in d.steamed_content.split(" "): dictionary[a] = 1
-        else:
-            for a in d.cleaned_content.split(" "): dictionary[a] = 1
+        for a in d.cleaned_content.split(" "): dictionary[a] = 1
 
     goal = 0
     current = 0
